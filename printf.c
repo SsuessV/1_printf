@@ -6,38 +6,41 @@
 /*   By: syoun <syoun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:57:08 by syoun             #+#    #+#             */
-/*   Updated: 2023/11/01 17:32:18 by syoun            ###   ########.fr       */
+/*   Updated: 2023/11/07 17:53:04 by syoun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-r_specifier (const char *format, 
+f_specifier (const char *format, void *args)
 {
 	int i;
 	i = 0;
-	if (*format == %)
-	{
-		format++;
-		if (*format == 'c')
-			i += ft_putchar ((long int) args)
-		else if (*format == 's')
-			i += ft_putstr ((char *) args)
-		else if (*format == 'p')
-		else if (*format == 'd')
-		else if (*format == 'i')
-		else if (*format == 'u')
-		else if (*format == 'x')
-		else if (*format == 'X')
-		else if (*format == '%')
-
+	if (*format == 'c')
+		i += ft_putchar ((long int) args)
+	else if (*format == 's')
+		i += ft_putstr ((char *) args)
+	else if (*format == 'p')
+		i +=
+	else if (*format == 'd')
+		i +=
+	else if (*format == 'i')
+		i +=
+	else if (*format == 'u')
+		i +=
+	else if (*format == 'x')
+		i +=
+	else if (*format == 'X')
+		i +=
+	else if (*format == '%')
+		i +=
 }
-
 
 int ft_printf (const char *format, ...)
 {
 	va_list args;
 	char *str;
+	va_start (args, format);
 	int	i;
 
 	i = 0;
@@ -46,19 +49,14 @@ int ft_printf (const char *format, ...)
 		if (*str == '%')
 		{
 			str++;
-			if (ft_str("cs"))
-
+			if (ft_str("cspdiuxX%", *str))
+				i += f_specifier (format, args);
+			else if ()
 		}
 
 	}
-	va_start (args, format);
-	while (i < )
-	{
-		int value = va_arg(args, const char);
-	}
-	va_end (args)
 }
-
+/* 
 int	main(void)
 {
 	char *format;
@@ -229,4 +227,4 @@ int	main(void)
 	result_ft = ft_printf(format, 18446744073709551615ULL);
 	result_print = printf(format, 18446744073709551615ULL);
 	printf("Return: ft_printf=%d printf=%d\n\n", result_ft, result_print);
-}
+} */
