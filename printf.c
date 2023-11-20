@@ -6,7 +6,7 @@
 /*   By: syoun <syoun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:57:08 by syoun             #+#    #+#             */
-/*   Updated: 2023/11/07 17:53:04 by syoun            ###   ########.fr       */
+/*   Updated: 2023/11/20 11:09:06 by syoun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int ft_printf (const char *format, ...)
 		if (*str == '%')
 		{
 			str++;
-			if (ft_str("cspdiuxX%", *str))
+			if (ft_strchr("cspdiuxX%", *str))
 				i += f_specifier (format, args);
 			else if ()
 		}
