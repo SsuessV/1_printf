@@ -1,39 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: syoun <syoun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 17:29:03 by syoun             #+#    #+#             */
-/*   Updated: 2023/11/30 11:40:01 by syoun            ###   ########.fr       */
+/*   Created: 2023/10/26 15:57:53 by syoun             #+#    #+#             */
+/*   Updated: 2023/11/30 10:37:08 by syoun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-void	ft_putnbr(int nb)
-{
-	char	a;
+#include <string.h>
+#include <stdio.h>
+#include <stdarg.h>
+#include <unistd.h>
 
-	if (nb == -2147483648)
-	{
-		write (1, "-2147483648", 11);
-	}
-	else if (nb < 0)
-	{
-		write (1, "-", 1);
-		ft_putnbr (nb * (-1));
-	}
-	else if (nb >= 10)
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
-	}
-	else
-	{
-		a = nb + '0';
-		write(1, &a, 1);
-	}
-	return (
-}
+#endif

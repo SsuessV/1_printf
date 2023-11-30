@@ -1,39 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_print_ptr_hexa.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: syoun <syoun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 17:29:03 by syoun             #+#    #+#             */
-/*   Updated: 2023/11/30 11:40:01 by syoun            ###   ########.fr       */
+/*   Created: 2023/11/30 14:35:11 by syoun             #+#    #+#             */
+/*   Updated: 2023/11/30 14:46:14 by syoun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putnbr(int nb)
+void	ft_print_ptr_hexa (void* ptr)
 {
-	char	a;
+	unsigned int converted;
+	int length;
 
-	if (nb == -2147483648)
-	{
-		write (1, "-2147483648", 11);
-	}
-	else if (nb < 0)
-	{
-		write (1, "-", 1);
-		ft_putnbr (nb * (-1));
-	}
-	else if (nb >= 10)
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
-	}
-	else
-	{
-		a = nb + '0';
-		write(1, &a, 1);
-	}
-	return (
+	converted = (unsigned int)(void *)ptr;
+	length = ft_hexa(converted);
+	return (length);
 }
