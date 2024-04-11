@@ -3,60 +3,64 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: syoun <syoun@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 10:07:55 by syoun             #+#    #+#             */
-/*   Updated: 2023/11/30 14:46:06 by syoun            ###   ########.fr       */
+/*   Updated: 2024/04/05 20:34:37 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-f_specifier (const char *format, void *args)
+static int	ft_fspecifier(const char *format, va_list args)
 {
-	int i;
-	i = 0;
-	if (*format == 'c')
-		i += ft_putchar ((long int) args)
-	else if (*format == 's')
-		i += ft_putstr ((char *) args)
-	else if (*format == 'p')
-		i +=
-	else if (*format == 'd')
-		i +=
-	else if (*format == 'i')
-		i +=
-	else if (*format == 'u')
-		i +=
-	else if (*format == 'x')
-		i +=
-	else if (*format == 'X')
-		i +=
-	else if (*format == '%')
-		i +=
-}
-
-int ft_printf (const char *format, ...)
-{
-	va_list args;
-	char *str;
-	va_start (args, format);
 	int	i;
 
 	i = 0;
-	while (*str)
-	{
-		if (*str == '%')
-		{
-			str++;
-			if (ft_strchr("cspdiuxX%", *str))
-				i += f_specifier (format, args);
-			else if ()
-		}
-
-	}
+	if (*format == 'c')
+		i += ft_putchar ((long int) args);
+	else if (*format == 's')
+		i += ft_putstr ((char *) args);
+	else if (*format == 'p')
+		i += ft_print_ptr_hexa ((unsigned long long) args);
+	else if (*format == 'd' || *format == 'i')
+		i += ft_putnbr ((long int) args);
+	else if (*format == 'u')
+		i += ft_;
+	else if (*format == 'x')
+		i += ft_hexa ((unsigned long int) args);
+	else if (*format == 'X')
+		i += ft_hexaupp ((unsigned long int) args);
+	return (i);
 }
-/* 
+
+int	ft_printf(const char *format, ...)
+{
+	va_list	args;
+	int		i;
+
+	i = 0;
+	va_start (args, format);
+	while (*format)
+	{
+		if (*format == '%')
+		{
+			format++;
+			if (ft_strchr("cspdiuxX%", *format))
+				i += ft_fspecifier (format, args);
+			else if (*format == '%')
+				i += ft_putchar('%');
+		}
+		else
+		{
+			i += ft_putchar(*format);
+		}
+		format++;
+	}
+	va_end(args);
+	return (i);
+}
+/*
 int	main(void)
 {
 	char *format;

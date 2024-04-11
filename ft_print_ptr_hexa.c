@@ -3,21 +3,69 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_ptr_hexa.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: syoun <syoun@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 14:35:11 by syoun             #+#    #+#             */
-/*   Updated: 2023/11/30 14:46:14 by syoun            ###   ########.fr       */
+/*   Updated: 2024/04/05 21:11:44 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_print_ptr_hexa (void* ptr)
+int	ft_hexa(unsigned int n)
 {
-	unsigned int converted;
-	int length;
+	int		remainder;
+	int		index;
+	char	converted[50];
+	char	*hexa;
+	int		count;
 
-	converted = (unsigned int)(void *)ptr;
-	length = ft_hexa(converted);
-	return (length);
+	hexa = "0123456789abcdef";
+	index = 0;
+	count = 0;
+	if (n == 0)
+	{
+		write (1, "0", 1);
+		return (1);
+	}
+	while (n != 0)
+	{
+		remainder = n % 16;
+		converted[index] = hexa[remainder];
+		index++;
+		n /= 16;
+	}
+	while (index > 0)
+		write(1, &converted[--index], 1);
+	count++;
+	return (count);
+}
+
+int	ft_count_hexa(unsigned long long n)
+{
+	int	count;
+
+	count = 0;
+	if (n == 0)
+		return (1);
+	while (n != 0)
+	{
+		n = n / 16;
+		count++;
+	}
+	return (count);
+}
+
+int	ft_print_ptr_hexa(unsigned long long ptr)
+{
+	int	counter;
+
+	counter = 0;
+	if (ptr != 0)
+	{
+		counter += write (1, "0x", 2);
+		ft_hexa (ptr);
+		counter += ft_count_hexa(ptr);
+	}
+	return (counter);
 }

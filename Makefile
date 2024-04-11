@@ -4,10 +4,15 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = ft_.c\
-
-
-
+SRC = ft_hexa.c\
+ft_hexaupp.c\
+ft_print_ptr_hexa.c\
+ft_printf.c\
+ft_putchar.c\
+ft_putnbr.c\
+ft_putstr.c\
+ft_strchr.c\
+ft_strlen.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -29,4 +34,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re
+.PHONY: all clean fclean re

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_hexa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: syoun <syoun@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 11:17:15 by syoun             #+#    #+#             */
-/*   Updated: 2023/11/30 14:05:07 by syoun            ###   ########.fr       */
+/*   Updated: 2024/01/31 15:03:55 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ int	ft_hexa(unsigned int n)
 	int		index;
 	char	converted[50];
 	char	*hexa;
+	int		count;
 
-	hexa = "012356789abcdef";
+	hexa = "0123456789abcdef";
 	index = 0;
+	count = 0;
 	if (n == 0)
 	{
 		write (1, "0", 1);
@@ -35,16 +37,18 @@ int	ft_hexa(unsigned int n)
 	}
 	while (index > 0)
 		write(1, &converted[--index], 1);
-	return (index);
+	count++;
+	return (count);
 }
 
-int	ft_print_hexa (unsigned int n)
+int	ft_print_hexa(unsigned int n)
 {
 	if (n == 0)
 		return (ft_putchar('0'));
 	return (ft_hexa(n));
 }
-/* int	main (void)
+/*
+int	main (void)
 {
 	unsigned int deci = 1000;
 	printf("outcome ft_hexa:");
@@ -54,4 +58,5 @@ int	ft_print_hexa (unsigned int n)
 	char	hexsprintf[50];
 	sprintf(hexsprintf, "%x", deci);
 	printf("outcome sprintf %s\n", hexsprintf);
-} */
+}
+*/
