@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 11:17:15 by syoun             #+#    #+#             */
-/*   Updated: 2024/01/31 15:03:55 by marvin           ###   ########.fr       */
+/*   Updated: 2024/04/11 13:45:36 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,17 @@ int	ft_hexa(unsigned int n)
 	}
 	while (index > 0)
 		write(1, &converted[--index], 1);
-		count++;
+	count++;
 	return (count);
 }
 
-int	ft_print_hexa (unsigned int n)
+int	ft_print_hexa(unsigned int n)
 {
 	if (n == 0)
 		return (ft_putchar('0'));
 	return (ft_hexa(n));
 }
+/*
 int	main (void)
 {
 	unsigned int deci = 1000;
@@ -58,3 +59,4 @@ int	main (void)
 	sprintf(hexsprintf, "%x", deci);
 	printf("outcome sprintf %s\n", hexsprintf);
 }
+*/

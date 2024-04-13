@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 11:17:15 by syoun             #+#    #+#             */
-/*   Updated: 2024/04/02 13:30:59 by marvin           ###   ########.fr       */
+/*   Updated: 2024/04/11 13:45:47 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ int	ft_hexaupp(unsigned int n)
 	}
 	while (index > 0)
 		write(1, &converted[--index], 1);
-		count++;
+	count++;
 	return (count);
 }
 
-int	ft_print_hexaupp (unsigned int n)
+int	ft_print_hexaupp(unsigned int n)
 {
 	if (n == 0)
 		return (ft_putchar('0'));

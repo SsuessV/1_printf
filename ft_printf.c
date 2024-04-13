@@ -6,41 +6,41 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 10:07:55 by syoun             #+#    #+#             */
-/*   Updated: 2024/04/05 20:34:37 by marvin           ###   ########.fr       */
+/*   Updated: 2024/04/11 13:46:11 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_fspecificer (const char *format, va_list args)
+static int	ft_fspecifier(const char *format, va_list args)
 {
-
-	int i;
-	i = 0;
-	if (*format == 'c')
-		i += ft_putchar ((char *) args)
-	else if (*format == 's')
-		i += ft_putstr ((char *) args)
-	else if (*format == 'p')
-		i += ft_print_ptr_hexa 
-	else if (*format == 'd' || *format == 'i')
-		i += ft_putnbr ((int) args)
-	else if (*format == 'u')
-		i +=
-	else if (*format == 'x')
-		i += ft_hexa ((unsigned int) args)
-	else if (*format == 'X')
-		i += ft_hexaupp ((unsigned int) args)
-	return (i);
-}
-
-int ft_printf (const char *format, ...)
-{
-	va_list args;
-	va_start (args, format);
 	int	i;
 
 	i = 0;
+	if (*format == 'c')
+		i += ft_putchar ((long int) args);
+	else if (*format == 's')
+		i += ft_putstr ((char *) args);
+	else if (*format == 'p')
+		i += ft_print_ptr_hexa ((unsigned long long) args);
+	else if (*format == 'd' || *format == 'i')
+		i += ft_putnbr ((long int) args);
+	else if (*format == 'u')
+		i += ft_;
+	else if (*format == 'x')
+		i += ft_hexa ((unsigned long int) args);
+	else if (*format == 'X')
+		i += ft_hexaupp ((unsigned long int) args);
+	return (i);
+}
+
+int	ft_printf(const char *format, ...)
+{
+	va_list	args;
+	int		i;
+
+	i = 0;
+	va_start (args, format);
 	while (*format)
 	{
 		if (*format == '%')
