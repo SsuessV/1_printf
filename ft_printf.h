@@ -17,16 +17,19 @@
 # include <stdio.h>
 # include <stdarg.h>
 # include <unistd.h>
+# include <stddef.h>
+# include <stdlib.h>
+# include <limits.h>
 
-int     ft_printf(const char *format, ...);
-int     ft_hexa(unsigned int n);
-int     ft_hexaupp(unsigned int n);
-int     ft_print_ptr_hexa(unsigned long long ptr);
-int     ft_unsigned(unsigned int n);
-int     ft_putchar(int c);
-int     ft_putstr(char *str);
-int     ft_strlen(char *str);
-void    ft_putnbr(int nb);
+int	ft_print_hexa(unsigned int n);
+int	ft_print_hexaupp(unsigned int n);
+int	ft_print_ptr_hexa(unsigned long long ptr);
+int	ft_printf(const char *format, ...);
+int	ft_putchar(int c);
+int	ft_strlen(char *str);
+int ft_putstr(char *str);
+int	ft_print_unsigned(unsigned int n);
+int	ft_print_nbr(int n);
 char    *ft_strchr(const char *s, int c);
 
 #endif

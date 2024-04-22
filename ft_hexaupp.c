@@ -12,23 +12,18 @@
 
 #include "ft_printf.h"
 
-int	ft_hexaupp(unsigned int n)
+void	ft_hexaupp(unsigned int n)
 {
 	int		remainder;
 	int		index;
 	char	converted[50];
 	char	*hexa;
-	int		count;
 
 	hexa = "0123456789ABCDEF";
 	index = 0;
-	count = 0;
 	if (n == 0)
-	{
 		write (1, "0", 1);
-		return (1);
-	}
-	while (n != 0)
+	while (n > 0)
 	{
 		remainder = n % 16;
 		converted[index] = hexa[remainder];
@@ -37,15 +32,29 @@ int	ft_hexaupp(unsigned int n)
 	}
 	while (index > 0)
 		write(1, &converted[--index], 1);
-	count++;
-	return (count);
+}
+
+int	ft_hexaupp_len(unsigned int n)
+{
+	int	i;
+
+	i = 0;
+	if (n == 0)
+		return (1);
+	while (n > 0)
+	{
+		n /= 16;
+		i++;
+	}
+	return (i);
 }
 
 int	ft_print_hexaupp(unsigned int n)
 {
 	if (n == 0)
 		return (ft_putchar('0'));
-	return (ft_hexaupp(n));
+	ft_hexaupp(n);
+	return (ft_hexaupp_len(n));
 }
 /* int	main (void)
 {

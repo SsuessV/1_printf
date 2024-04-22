@@ -12,23 +12,18 @@
 
 #include "ft_printf.h"
 
-int	ft_hexa(unsigned int n)
+void	ft_ptr_hexa(unsigned long long n)
 {
 	int		remainder;
 	int		index;
 	char	converted[50];
 	char	*hexa;
-	int		count;
 
 	hexa = "0123456789abcdef";
 	index = 0;
-	count = 0;
 	if (n == 0)
-	{
 		write (1, "0", 1);
-		return (1);
-	}
-	while (n != 0)
+	while (n > 0)
 	{
 		remainder = n % 16;
 		converted[index] = hexa[remainder];
@@ -37,8 +32,6 @@ int	ft_hexa(unsigned int n)
 	}
 	while (index > 0)
 		write(1, &converted[--index], 1);
-	count++;
-	return (count);
 }
 
 int	ft_count_len(unsigned long long n)
@@ -50,7 +43,7 @@ int	ft_count_len(unsigned long long n)
 		return (1);
 	while (n != 0)
 	{
-		n = n / 16;
+		n /= 16;
 		count++;
 	}
 	return (count);
@@ -64,8 +57,10 @@ int	ft_print_ptr_hexa(unsigned long long ptr)
 	if (ptr != 0)
 	{
 		counter += write (1, "0x", 2);
-		ft_hexa (ptr);
+		ft_ptr_hexa (ptr);
 		counter += ft_count_len(ptr);
 	}
+	else
+		counter += write (1, "(nil)", 5);
 	return (counter);
 }

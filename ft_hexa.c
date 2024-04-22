@@ -6,29 +6,24 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 11:17:15 by syoun             #+#    #+#             */
-/*   Updated: 2024/04/11 13:45:36 by marvin           ###   ########.fr       */
+/*   Updated: 2024/04/16 16:17:09 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_hexa(unsigned int n)
+void	ft_hexa(unsigned int n)
 {
 	int		remainder;
 	int		index;
 	char	converted[50];
 	char	*hexa;
-	int		count;
 
 	hexa = "0123456789abcdef";
 	index = 0;
-	count = 0;
 	if (n == 0)
-	{
 		write (1, "0", 1);
-		return (1);
-	}
-	while (n != 0)
+	while (n > 0)
 	{
 		remainder = n % 16;
 		converted[index] = hexa[remainder];
@@ -37,15 +32,29 @@ int	ft_hexa(unsigned int n)
 	}
 	while (index > 0)
 		write(1, &converted[--index], 1);
-	count++;
-	return (count);
+}
+
+int	ft_hexa_len(unsigned int n)
+{
+	int	i;
+
+	i = 0;
+	if (n == 0)
+		return (1);
+	while (n > 0)
+	{
+		n /= 16;
+		i++;
+	}
+	return (i);
 }
 
 int	ft_print_hexa(unsigned int n)
 {
 	if (n == 0)
 		return (ft_putchar('0'));
-	return (ft_hexa(n));
+	ft_hexa(n);
+	return (ft_hexa_len(n));
 }
 /*
 int	main (void)

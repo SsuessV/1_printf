@@ -14,51 +14,53 @@
 
 void	ft_putnbr(int nb)
 {
-	char	a;
+	char	c;
 
 	if (nb == -2147483648)
 	{
 		write (1, "-2147483648", 11);
 	}
-	else if (nb < 0)
+	if (nb < 0 && nb > -2147483648)
 	{
 		write (1, "-", 1);
-		ft_putnbr (nb * (-1));
+		nb = -nb;
 	}
-	else if (nb >= 10)
+	if (nb >= 10 && nb <= 2147483647)
 	{
 		ft_putnbr(nb / 10);
 		ft_putnbr(nb % 10);
 	}
-	else
+	if (nb >= 0 && nb < 10)
 	{
-		a = nb + '0';
-		write(1, &a, 1);
+		c = nb + '0';
+		write(1, &c, 1);
 	}
 }
-int	ft_count_len (int n)
-{
-	int count;
 
-	count = 0;
+int	ft_len(int n)
+{
+	int	i;
+
+	i = 0;
 	if (n == -2147483648)
-		count += 11;
-	else if (n < 0)
+		return (11);
+	if (n < 0)
 	{
-		count++;
-		count += ft_count_len(n * (-1));
+		i++;
+		n *= -1;
 	}
-	else if (n >= 10)
+	if (n == 0)
+		return (1);
+	while (n > 0)
 	{
-		count++;
-		count += ft_count_len(n / 10);
+		n /= 10;
+		i++;
 	}
-	else
-		count++;
-	return (count);
+	return (i);
 }
-int	ft_print_nbr (int n)
+
+int	ft_print_nbr(int n)
 {
 	ft_putnbr(n);
-	return (ft_count_len(n));
+	return (ft_len(n));
 }
