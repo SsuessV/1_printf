@@ -12,6 +12,7 @@ ft_putchar.c\
 ft_putnbr.c\
 ft_putstr.c\
 ft_strchr.c\
+ft_unsigned.c\
 ft_strlen.c
 
 OBJ = $(SRC:.c=.o)
