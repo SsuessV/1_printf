@@ -1,4 +1,5 @@
-# Implement your own ft_printf function
+# Circle 1.2_Printf
+### Implement your own ft_printf function
 🎯Learn the Variadic Function in C <br>
 🎯Attain Extensive Understanding of Printf <br>
 🎯ft_printf that handles the following format specifiers <br>
