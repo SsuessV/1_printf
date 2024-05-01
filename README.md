@@ -4,6 +4,8 @@
 🎯Learn the Variadic Function in C <br>
 🎯Attain Extensive Understanding of Printf <br>
 🎯Implement ft_printf that handles the following format specifiers <br>
+
+Achieved Score 💯
 <blockquote> %c character<br>
 %s string <br>
 %p print void * pointer in hexadecimal format<br>
