@@ -1,8 +1,9 @@
 # Circle 1.2_Printf
-### Implement your own ft_printf function
+## Implement your own ft_printf function
+### Objectives<br>
 🎯Learn the Variadic Function in C <br>
 🎯Attain Extensive Understanding of Printf <br>
-🎯ft_printf that handles the following format specifiers <br>
+🎯Implement ft_printf that handles the following format specifiers <br>
 <blockquote> %c character<br>
 %s string <br>
 %p print void * pointer in hexadecimal format<br>
